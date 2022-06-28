@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+.nav-link {
+  color: white;
+
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
+
+
+#goal-new-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
