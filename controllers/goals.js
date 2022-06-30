@@ -1,10 +1,12 @@
 var Goal = require('../models/goal');
+const AccountabilityPartner = require('../models/accountabilityPartner')
 
 
 module.exports = {
   new: newGoals,
   create,
   index,
+  show,
 };
 
 
@@ -13,18 +15,6 @@ function newGoals(req, res) {
   res.render('goals/new');
 }
 
-// function create(req, res) {
-//   Goal.create(req.body)
-//   res.redirect('/goals');
-// }
-
-// function index(req, res) {
-//   res.render('goals/index', {
-//       goals: Goal.getAll()
-//   });
-// };
-
-
 function index(req, res) { Goal
   .find({})
   .sort('beginDate')
@@ -32,9 +22,7 @@ function index(req, res) { Goal
     res.render('goals/index', {
        goals
     })
-
-    })
-  }
+    })}
 
 function newGoals(req, res) {
     const newGoal = new Goal();
@@ -49,16 +37,53 @@ function newGoals(req, res) {
     res.render('goals/new' ,  { beginDate } );
   }
 
+  // function create(req, res) {
+  //   req.body.accomplished = !!req.body.accomplished;
+  //   req.body.stillImproving = !!req.body.stillImproving;
+  //   const goal = new Goal(req.body);
+  //   console.log(req.body)
+  //   goal.save(function(err) {
+  //     if (err) {
+  //        console.log(err)
+  //     return res.redirect('/goals/new');
+  //     }
+  //     res.redirect('/goals');
+  //   });
+  // }
+
   function create(req, res) {
     req.body.accomplished = !!req.body.accomplished;
     req.body.stillImproving = !!req.body.stillImproving;
-    const goal = new Goal(req.body);
-    console.log(req.body)
+    req.body.partner = req.body.partner.replace(/\s*,\s*/g, ',');
+    if (req.body.partner) req.body.partner = req.body.partner.split(',');
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    }
+    var goal = new Goal(req.body);
     goal.save(function(err) {
-      if (err) {
-         console.log(err)
-      return res.redirect('/goals/new');
-      }
-      res.redirect('/goals');
+      // one way to handle errors
+      if (err) return res.redirect('/goals/new');
+      console.log(goal);
+      // for now, redirect right back to new.ejs
+      res.redirect(`/goals/${goal._id}`);
     });
+  }
+
+  // function show(req, res) {
+  //  Goal.findById(req.params.id, function(err, goal) {
+  //         res.render('goals/show', { goal }); 
+  //     })
+     
+  //   }
+
+  function show(req, res) {
+    Goal.findById(req.params.id)
+      .populate('partner').exec(function(err, goal) {
+        AccountabilityPartner.find(
+          {_id: {$nin: goal.partner}},
+          function(err, accountabilityPartners) {
+            res.render('goals/show', {goal, accountabilityPartners});
+          }
+        )
+      });
   }

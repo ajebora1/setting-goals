@@ -2,6 +2,17 @@ const mongoose = require('mongoose')
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema
 
+const reflectionSchema = new Schema({
+    reflection: String,
+    nextStep:  String,
+    // Add the 3 new properties below
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+    userName: String,
+    userAvatar: String
+  }, {
+    timestamps: true
+  });
+
 const goalSchema = new Schema({
     goalName: String,
     accomplished: {
@@ -12,6 +23,10 @@ const goalSchema = new Schema({
         type: Boolean,
         default: false
     },
+    partner:[{
+      type: Schema.Types.ObjectId, 
+      ref: 'AccountabilityPartner'
+    }],
     beginDate:   {
         type: Date,
         default: function() {
@@ -33,7 +48,10 @@ const goalSchema = new Schema({
         var cday1 = new Date(year1, month1, day1 + 7);
         return cday1
       }
-        }
-    })
+        }, 
+        reflections: [reflectionSchema]
+      },  {
+            timestamps: true
+        })
 
     module.exports = mongoose.model('Goal', goalSchema);

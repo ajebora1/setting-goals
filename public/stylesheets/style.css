@@ -29,3 +29,11 @@ a {
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
 }
+
+#add-reflection-form,
+#add-accountabilityPartner-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
+

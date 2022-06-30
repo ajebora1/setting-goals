@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <nav class="navbar navbar-dark bg-primary">
+     <% if (user) { %>
+      <a class="nav-link" href="/goals">ALL GOAL</a>
+      <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
+      <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
+      <!-- <a class="nav-link" href="/goals">ADD REFLECTION</a> -->
+      <a href="/logout">LOG OUT</a>
+      <% } else { %>
+      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+     <% } %>
+    </nav>
+<br>
+<br>
+<section id="show-page">
+    <div>Title: Goal Name</div>
+    <div><%= goal.goalName %></div>
+    <div>Accomplished: </div>
+    <div><%= goal.accomplised ? 'Yes' : 'No'  %></div>
+    <div>Still Improving: </div>
+    <div><%= goal.stillImproving ? 'Yes' : 'No' %></div>
+    <div>Start Date: </div>
+    <div><%= goal.beginDate %></div>
+    <div>End Date: </div>
+    <div><%= goal.endDate %></div>
+      <!-- start Partner list -->
+    <div>Partner:</div>
+    <ul>
+       <%- goal.partner.map(p => 
+       `<li>${p.name} <small>${p.relationship}</small></li>`
+       ).join('') %>
+     </ul>
+  <!-- end P list -->
+  </section>
+
+  <!-- add to cast form below this comment -->
+<form id="add-per-to-partner" action="/goals/<%= goal._id %>/accountabilityPartners" method="POST">
+  <select name="accountabilityPartnerId">
+        <%- accountabilityPartners.map(p => 
+      `<option value="${p._id}">${p.name}</option>`
+    ).join('') %>
+  </select>
+  <button type="submit">Add to Partner</button>
+</form>
+
+
+  <br><br>
+<h2>Reflection</h2>
+
+<% if(user) { %>
+  <form id="add-reflection-form" method="POST" action="/goals/<%= goal._id %>/reflections">
+    <label>Reflection:</label>
+    <textarea name="reflection"></textarea>
+    <label>Next Step:</label>
+    <textarea name="nextStep"></textarea>
+
+    <input type="submit" value="Add Relection and Next Step"/>
+  </form>
+<% } %>
+<br>
+<br>
+
+<% if (goal.reflections.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Reflection</th>
+        <th>Next Step</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% goal.reflections.forEach(function(r, idx) { %>
+        <tr>
+          <td>
+            <% if (user && user._id.equals(r.user)) { %>
+              <form action="/reflections/<%= r._id %>?_method=PUT" method="POST">
+               <label>Reflection:</label>
+                <input type="text" name="reflection" value="<%= r.reflection %>">
+                <label>Next Step:</label>
+                <input type="text" name="nextStep" value="<%= r.nextStep %>">
+                <button type="submit">UPDATE</button>
+              </form>
+            <% } %>
+          </td>
+          <td>
+            <% if (user && user._id.equals(r.user)) { %>
+              <form action="/reflections/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Reflections Yet</h5>
+<% } %>
+
+
+</body>
+</html>
