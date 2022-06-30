@@ -1,6 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-image: url("https://i.imgur.com/fZgCgdH.jpg");
+  background-image: url("https://i.imgur.com/A2UyzNl.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; */
 }
 
 a {
@@ -37,3 +42,52 @@ a {
   grid-template-columns: repeat(2, minmax(auto, 22rem));
 }
 
+.reflecwidth {
+  width: 400px;
+}
+/* .posts_index {
+  height: 180px;
+}
+
+.posts_index p {
+  position: absolute;
+} */
+
+#goal-new-form *,
+#add-reflection-form *,
+#add-accountabilityPartner-form * {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#goal-new-form input[type="submit"] {
+  grid-column: span 2;
+  width: 10rem;
+  margin-left: auto;
+}
+
+#goal-new-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
+
+#partname {
+  background-color: #B8C0C2;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .3rem;
+  font-size: .8rem;
+  text-align: center;
+}
+
+#partname-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 1rem; */
+  width: 80%;
+  border: 2px solid #B8C0C2;
+  border-radius: .5rem;
+  margin: .5rem 0 2rem;
+}
