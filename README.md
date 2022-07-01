@@ -1,12 +1,12 @@
-![setting-goals] (https://github.com/ajebora1/setting-goals/blob/main/setting-goals.png)
+![setting-goals](https://github.com/ajebora1/setting-goals/blob/main/setting-goals.png)
 
 ## Wireframe of the Website:
 https://lucid.app/lucidspark/a676745e-42b6-40d1-ab77-496bfb897519/edit?beaconFlowId=DEA8124B6278362D&invitationId=inv_9fb218fb-8e8d-4f20-bd61-d109a4513b7b#
 
-##Project Plan:
+## Project Plan:
 https://trello.com/b/SfvDmYrU/goals-project
 
-##User Story
+## User Story
 https://trello.com/b/tmAdOIcx/user-story
 
 ## Data Model
@@ -17,7 +17,7 @@ showing random acts of kindness.
 
 I have listed some but not exaustive ways of the little things we can do that can brighten both our day and that of others.
 
-##Technology Used
+## Technology Used
 
 * Javascript
 
