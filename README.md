@@ -49,6 +49,8 @@ I have listed some but not exaustive ways of the little things we can do that ca
 
 * Fix the bug for the time left for the user to complete challenge
 
+## Link to Website
 
+https://random-act-of-kindness.herokuapp.com
 
 
