@@ -6,7 +6,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <a class="nav-link" href="/">HOME</a>
      <% if (user) { %>
-      <a class="nav-link" href="/goals">ALL GOAL</a>
+      <a class="nav-link" href="/goals">ALL GOALS</a>
       <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
       <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
       <a href="/logout">LOG OUT</a>
@@ -16,15 +16,16 @@
     </nav>
 <br>
 <br>
-<h1 class="colorP">Add New Partner</h1>
-
+<h1 class="posts_index">Add New Partner</h1>
+<br>
 <div>List of Accountability Partners:</div>
 <section id="partname-container">
   <% accountabilityPartners.forEach(function(p) { %>
     <article class="partname"><%= p.name %></article>
   <% }) %>
 </section>
-
+<br>
+<br>
 <form id="add-accountabilityPartner-form" action="/accountabilityPartners" method="POST">
   <label>Name:</label>
   <input type="text" name="name">
@@ -32,6 +33,5 @@
   <input type="text" name="relationship">
   <input type="submit" value="Add Accountability Partner">
 </form>
-
 </body>
 </html>

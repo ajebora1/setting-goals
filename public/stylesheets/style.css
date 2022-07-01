@@ -1,33 +1,24 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: black;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /* background-image: url("https://i.imgur.com/fZgCgdH.jpg");
-  background-image: url("https://i.imgur.com/A2UyzNl.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; */
 }
+
+input {
+  color: black;
+}
+ .nav-link {
+  color: white;
+} 
 
 a {
   color: #00B7FF;
 }
-
-.nav-link {
-  color: white;
-
-}
-
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-}
-
-.login img {
-  height: 30px;
-}
-
 
 #goal-new-form {
   display: grid;
@@ -42,16 +33,32 @@ a {
   grid-template-columns: repeat(2, minmax(auto, 22rem));
 }
 
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+
+#goal-new-form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
+
 .reflecwidth {
   width: 400px;
 }
-/* .posts_index {
-  height: 180px;
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
 }
 
-.posts_index p {
-  position: absolute;
-} */
+.login img {
+  height: 30px;
+}
 
 #goal-new-form *,
 #add-reflection-form *,
@@ -61,33 +68,18 @@ a {
   border-radius: 5px;
 }
 
-#goal-new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
+#add-per-to-partner {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-#goal-new-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+.posts_index {
+  /* text-size-adjust: 0.75; */
+  font-size: larger;
+  color: purple;
+  font-size: 30px;
 }
-
-#partname {
-  background-color: #B8C0C2;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: .3rem;
-  font-size: .8rem;
-  text-align: center;
-}
-
-#partname-container {
-  display: flex;
-  flex-wrap: wrap;
-  /* padding: 1rem; */
-  width: 80%;
-  border: 2px solid #B8C0C2;
-  border-radius: .5rem;
-  margin: .5rem 0 2rem;
+#posts_index {
+  color: purple;
 }

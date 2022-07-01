@@ -6,10 +6,9 @@
     <nav class="navbar navbar-dark bg-primary">
       <a class="nav-link" href="/">HOME</a>
      <% if (user) { %>
-      <a class="nav-link" href="/goals">ALL GOAL</a>
+      <a class="nav-link" href="/goals">ALL GOALS</a>
       <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
       <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
-      <!-- <a class="nav-link" href="/goals">ADD REFLECTION</a> -->
       <a href="/logout">LOG OUT</a>
       <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
@@ -17,18 +16,13 @@
     </nav>
 <br>
 <br>
-<h1 class="colorP">Random Acts Of Kindness</h1>
+<h1 class="posts_index">Random Acts Of Kindness</h1>
 <table>
-  <!-- <thead>
-    <tr>
-      <th>Goal Name</th>
-    </tr>
-  </thead> -->
   <tbody>
      <% goals.forEach(function(goal){ %>
        <tr>
         <td><%= goal.goalName %></td> 
-         <td><a href="/goals/<%= goal._id %>">DETAILS</a></td>
+         <td><a href="/goals/<%= goal._id %>" style="color:purple">DETAILS</a></td>
        </tr>
       <% }) %> 
     </tbody>

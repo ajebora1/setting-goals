@@ -21,11 +21,6 @@ function create(req, res) {
   });
 }
 
-// function create(req, res) {
-//   AccountabilityPartner.create(req.body)
-//   res.redirect('/accountabilityPartners');
-// }
-
 function addToPartner(req, res) {
   Goal.findById(req.params.id, function(err, goal) {
     goal.partner.push(req.body.accountabilityPartnerId)

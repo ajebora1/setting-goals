@@ -6,7 +6,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <a class="nav-link" href="/">HOME</a>
      <% if (user) { %>
-      <a class="nav-link" href="/goals">ALL GOAL</a>
+      <a class="nav-link" href="/goals">ALL GOALS</a>
       <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
       <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
       <!-- <a class="nav-link" href="/goals">ADD REFLECTION</a> -->
@@ -16,7 +16,7 @@
      <% } %>
     </nav>
 <br>
-<h2>Details</h2>
+<h2 class="posts_index">Details</h2>
 <section id="show-page">
     <div>Title: Goal Name</div>
     <div><%= goal.goalName %></div>
@@ -25,21 +25,20 @@
     <div>Still Improving: </div>
     <div><%= goal.stillImproving ? 'Yes' : 'No' %></div>
     <div>Start Date: </div>
-    <div><%= goal.beginDate  %></div>
+    <div><%= `${goal.beginDate.toLocaleDateString('en-US', { timeZone: 'UTC' })}`  %></div>
     <div>End Date: </div>
-    <div><%= goal.endDate %></div>
-    <br>
-      <!-- start Partner list -->
-    <h2>Partner:</h2>
+    <div><%= `${goal.endDate.toLocaleDateString('en-US', { timeZone: 'UTC' })}` %></div>
+    <div> Days Remaining</div>
+     <input value="<%= daysremaining %>">
+      <br>
+    <h2 class="posts_index">Accountability Partners:</h2>
     <ul>
        <%- goal.partner.map(p => 
        `<li>${p.name}: ${p.relationship}</li>`
        ).join('') %>
      </ul>
-  <!-- end P list -->
   </section>
 
-  <!-- add to cast form below this comment -->
 <form id="add-per-to-partner" action="/goals/<%= goal._id %>/accountabilityPartners" method="POST">
   <select name="accountabilityPartnerId">
         <%- accountabilityPartners.map(p => 
@@ -51,7 +50,7 @@
 
 
   <br><br>
-<h2>Reflection</h2>
+<h2 class="posts_index">Reflection</h2>
 
 <% if(user) { %>
   <form id="add-reflection-form" method="POST" action="/goals/<%= goal._id %>/reflections">
@@ -68,12 +67,6 @@
 
 <% if (goal.reflections.length) { %>
   <table>
-    <!-- <thead>
-      <tr>
-        <th>Reflection</th>
-        <th>Next Step</th>
-      </tr>
-    </thead> -->
     <tbody>
       <% goal.reflections.forEach(function(r, idx) { %>
         <tr>
@@ -102,7 +95,5 @@
 <% } else { %>
   <h5>No Reflections Yet</h5>
 <% } %>
-
-
 </body>
 </html>
