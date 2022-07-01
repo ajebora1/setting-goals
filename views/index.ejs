@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="nav-link" href="/">HOME</a>
-    <% if (user) { %>
-      <a class="nav-link" href="/goals">ALL GOAL</a>
-      <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
-      <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
-      <!-- <a class="nav-link" href="/goals">ADD REFLECTION</a> -->
-      <a href="/logout">LOG OUT</a>
-      <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-     <% } %>
-    </nav>
 
-     <div class="posts_index">
-      <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Say Hello to 5 people you don’t know!</p>
-      <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Pay for coffee for the person behind you!</p>
-      <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Go for a walk 3 times a week!</p>
-      <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Appreciate people in your life!</p>
-      <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Give more of your time and resources!</p>
-      <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Be yourself!</p>
-      <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Don't be discouraged!</p>
-      <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Don't give up!</p>
-      <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Encourage someone!</p>
-      <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Hold the door for the next person!</p>
-      <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Smile at 5 people!</p>
-      <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Love more!</p>
-      <p id="posts_index" class="animate__animated animate__bounceOutDown animate__infinite animate__slower"> Forgive more!</p>
-      <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Laugh more!</p>
-      <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Call a friend you have not heard from in a long time!</p>
-      <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Appreciate what you have!</p>
-      <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Take time to appreciate nature!</p>
-      <p id="posts_index" class="animate__animated animate__bounceInUp animate__infinite animate__slower"> Celebrate little successes!</p>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-primary">
+    <a class="nav-link" href="/">HOME</a>
+    <% if (user) { %>
+    <a class="nav-link" href="/goals">ALL GOAL</a>
+    <a class="nav-link active" aria-current="page" href="/goals/new">ADD GOAL</a>
+    <a class="nav-link" href="/accountabilityPartners/new">ADD ACCOUNTABILITY PARTNER</a>
+    <!-- <a class="nav-link" href="/goals">ADD REFLECTION</a> -->
+    <a href="/logout">LOG OUT</a>
+    <% } else { %>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+  </nav>
+
+  <div class="posts_index">
+    <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Say Hello to 5
+      people you don’t know!</p>
+    <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Pay for coffee
+      for the person behind you!</p>
+    <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Go for a walk
+      3 times a week!</p>
+    <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Appreciate
+      people in your life!</p>
+    <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Give more of
+      your time and resources!</p>
+    <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Be yourself!
+    </p>
+    <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Don't be
+      discouraged!</p>
+    <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Don't give up!
+    </p>
+    <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Encourage
+      someone!</p>
+    <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Hold the door
+      for the next person!</p>
+    <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Smile at 5
+      people!</p>
+    <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Love more!</p>
+    <p id="posts_index" class="animate__animated animate__bounceOutDown animate__infinite animate__slower"> Forgive
+      more!</p>
+    <p id="posts_index" class="animate__animated animate__backInDown animate__infinite animate__slower"> Laugh more!</p>
+    <p id="posts_index" class="animate__animated animate__backInLeft animate__infinite animate__slower"> Call a friend
+      you have not heard from in a long time!</p>
+    <p id="posts_index" class="animate__animated animate__backInRight animate__infinite animate__slower"> Appreciate
+      what you have!</p>
+    <p id="posts_index" class="animate__animated animate__backOutUp animate__infinite animate__slower"> Take time to
+      appreciate nature!</p>
+    <p id="posts_index" class="animate__animated animate__bounceInUp animate__infinite animate__slower"> Celebrate
+      little successes!</p>
   </div>
 
 
-  
-  </body>
+
+</body>
+
 </html>

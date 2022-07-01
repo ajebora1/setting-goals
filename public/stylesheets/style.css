@@ -12,9 +12,10 @@ body {
 input {
   color: black;
 }
- .nav-link {
+
+.nav-link {
   color: white;
-} 
+}
 
 a {
   color: #00B7FF;
@@ -80,6 +81,7 @@ a {
   color: purple;
   font-size: 30px;
 }
+
 #posts_index {
   color: purple;
 }
