@@ -1,4 +1,4 @@
-# setting-goals
+![setting-goals] (https://github.com/ajebora1/setting-goals/blob/main/setting-goals.png)
 
 ## Wireframe of the Website:
 https://lucid.app/lucidspark/a676745e-42b6-40d1-ab77-496bfb897519/edit?beaconFlowId=DEA8124B6278362D&invitationId=inv_9fb218fb-8e8d-4f20-bd61-d109a4513b7b#
